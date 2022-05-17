@@ -17,6 +17,7 @@ func Connection() *gorm.DB {
 	}
 
 	db.AutoMigrate(&model.Work{})
+	db.AutoMigrate(&model.Project{})
 		  
 	return db
 }
