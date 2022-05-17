@@ -1,9 +1,11 @@
 package config
 
 import (
+	model "lazlanrafar/models"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-)
+)	
 
 func Connection() *gorm.DB {
 	baseUrl := "root:@tcp(127.0.0.1:3306)/lazlanrafar?charset=utf8mb4&parseTime=True&loc=Local"
@@ -13,6 +15,8 @@ func Connection() *gorm.DB {
 	if err != nil {
 		panic(err)
 	}
+
+	db.AutoMigrate(&model.EntityWork{})
 		  
 	return db
 }

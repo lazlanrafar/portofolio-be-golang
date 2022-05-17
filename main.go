@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 
 	config "lazlanrafar/configs"
+	route "lazlanrafar/routes"
 )
 
 func main() {
@@ -20,6 +21,8 @@ func setupRouter() *gin.Engine {
 
 	// Init Router
 	router := gin.Default()
+	v1 := router.Group("/api/v1")
+	route.InitWorkRoutes(db, v1)
 
 	return router
 }
