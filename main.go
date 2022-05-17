@@ -7,11 +7,13 @@ import (
 
 	config "lazlanrafar/configs"
 	route "lazlanrafar/routes"
+	util "lazlanrafar/utils"
 )
 
 func main() {
 	router := setupRouter()
-	router.Run(":8080")
+
+	router.Run(":" + util.GodotEnv("GO_PORT"))
 }
 
 func setupRouter() *gin.Engine {
