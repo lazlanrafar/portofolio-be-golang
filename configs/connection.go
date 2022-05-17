@@ -16,7 +16,7 @@ func Connection() *gorm.DB {
 		panic(err)
 	}
 
-	db.AutoMigrate(&model.EntityWork{})
+	db.AutoMigrate(&model.Work{})
 		  
 	return db
 }

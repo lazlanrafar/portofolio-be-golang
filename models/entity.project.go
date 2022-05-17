@@ -2,11 +2,9 @@ package model
 
 import "time"
 
-type Work struct {
+type Project struct {
 	ID        int    `gorm:"primary_key"`
 	Title     string `json:"title"`
-	Desc      string `json:"desc"`
-	Tools     string `json:"tools"`
 	DesignBy  string `json:"designBy"`
 	Link      string `json:"link"`
 	Image     string `json:"image"`

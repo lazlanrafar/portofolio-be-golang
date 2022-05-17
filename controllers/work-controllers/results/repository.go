@@ -7,7 +7,7 @@ import (
 )
 
 type Repository interface {
-	ResultsWorkRepository() (*[]model.EntityWork, string)
+	ResultsWorkRepository() (*[]model.Work, string)
 }
 
 type repository struct {
@@ -18,8 +18,8 @@ func NewRepositoryResults(db *gorm.DB) *repository {
 	return &repository{db}
 }
 
-func (r *repository) ResultsWorkRepository() (*[]model.EntityWork, string) {
-	var works []model.EntityWork
+func (r *repository) ResultsWorkRepository() (*[]model.Work, string) {
+	var works []model.Work
 	db := r.db.Model(&works)
 	errorCode := make(chan string, 1)
 
