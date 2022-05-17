@@ -1,24 +1,25 @@
 package main
 
 import (
-	"lazlanrafar/db"
+	"fmt"
 
 	"github.com/gin-gonic/gin"
+
+	config "lazlanrafar/configs"
 )
 
 func main() {
-	// Database
-	db.SetupDB()
+	router := setupRouter()
+	router.Run(":8080")
+}
 
-	// Router
-	r := gin.Default()
-	rv1 := r.Group("/api/v1")
+func setupRouter() *gin.Engine {
+	// Database Connection
+	db := config.Connection()
+	fmt.Println(db)
 
-	rv1.GET("/works", func (c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Hello World",
-		})
-	})
+	// Init Router
+	router := gin.Default()
 
-	r.Run()
+	return router
 }
