@@ -24,6 +24,9 @@ func setupRouter() *gin.Engine {
 	// Init Router
 	router := gin.Default()
 	v1 := router.Group("/api/v1")
+
+	// Routes
+	route.InitAuthRoutes(db, v1)
 	route.InitWorkRoutes(db, v1)
 	route.InitProjectRoutes(db, v1)
 
