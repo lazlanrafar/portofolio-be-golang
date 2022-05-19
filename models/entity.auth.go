@@ -10,3 +10,4 @@ type User struct {
 	UpdatedAt time.Time
 	CreatedAt time.Time
 }
+
